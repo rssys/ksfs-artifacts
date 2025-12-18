@@ -1,0 +1,31 @@
+/mnt/test_file: (g=0): rw=randread, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.33
+Starting 1 process
+
+/mnt/test_file: (groupid=0, jobs=1): err= 0: pid=9934: Thu Aug 21 03:40:29 2025
+  read: IOPS=5798, BW=22.6MiB/s (23.8MB/s)(227MiB/10001msec)
+    clat (usec): min=3, max=10465, avg=171.90, stdev=309.18
+     lat (usec): min=3, max=10465, avg=171.95, stdev=309.18
+    clat percentiles (usec):
+     |  1.00th=[   74],  5.00th=[   74], 10.00th=[   74], 20.00th=[   76],
+     | 30.00th=[   78], 40.00th=[   79], 50.00th=[   88], 60.00th=[   91],
+     | 70.00th=[   92], 80.00th=[  101], 90.00th=[  192], 95.00th=[ 1074],
+     | 99.00th=[ 1500], 99.50th=[ 1549], 99.90th=[ 1713], 99.95th=[ 1745],
+     | 99.99th=[ 2638]
+   bw (  KiB/s): min=12160, max=48480, per=94.45%, avg=21906.53, stdev=14927.79, samples=19
+   iops        : min= 3040, max=12120, avg=5476.63, stdev=3731.95, samples=19
+  lat (usec)   : 4=0.16%, 10=0.06%, 20=0.01%, 50=0.01%, 100=78.20%
+  lat (usec)   : 250=13.16%, 500=1.50%, 750=0.44%, 1000=0.94%
+  lat (msec)   : 2=5.51%, 4=0.01%, 10=0.01%, 20=0.01%
+  cpu          : usr=0.52%, sys=4.23%, ctx=57857, majf=0, minf=12
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=57990,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=22.6MiB/s (23.8MB/s), 22.6MiB/s-22.6MiB/s (23.8MB/s-23.8MB/s), io=227MiB (238MB), run=10001-10001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=56729/0, merge=0/0, ticks=9455/0, in_queue=9455, util=99.10%

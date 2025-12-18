@@ -1,0 +1,38 @@
+/mnt/test_file: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+fio-3.33
+Starting 1 process
+
+/mnt/test_file: (groupid=0, jobs=1): err= 0: pid=16320: Thu Aug 21 04:13:00 2025
+  write: IOPS=153k, BW=596MiB/s (625MB/s)(5959MiB/10001msec); 0 zone resets
+    clat (nsec): min=1620, max=129868, avg=1905.46, stdev=372.67
+     lat (nsec): min=1680, max=129928, avg=1966.59, stdev=372.96
+    clat percentiles (nsec):
+     |  1.00th=[ 1688],  5.00th=[ 1720], 10.00th=[ 1736], 20.00th=[ 1784],
+     | 30.00th=[ 1816], 40.00th=[ 1832], 50.00th=[ 1848], 60.00th=[ 1864],
+     | 70.00th=[ 1912], 80.00th=[ 1944], 90.00th=[ 2024], 95.00th=[ 2128],
+     | 99.00th=[ 3664], 99.50th=[ 4256], 99.90th=[ 5600], 99.95th=[ 6112],
+     | 99.99th=[ 7520]
+   bw (  KiB/s): min=310904, max=671072, per=99.56%, avg=607450.11, stdev=87965.97, samples=19
+   iops        : min=77726, max=167768, avg=151862.74, stdev=21991.54, samples=19
+  lat (usec)   : 2=85.84%, 4=13.50%, 10=0.66%, 20=0.01%, 50=0.01%
+  lat (usec)   : 100=0.01%, 250=0.01%
+  fsync/fdatasync/sync_file_range:
+    sync (nsec): min=3029, max=210096, avg=3760.63, stdev=498.42
+    sync percentiles (nsec):
+     |  1.00th=[ 3280],  5.00th=[ 3344], 10.00th=[ 3376], 20.00th=[ 3440],
+     | 30.00th=[ 3472], 40.00th=[ 3504], 50.00th=[ 3568], 60.00th=[ 3664],
+     | 70.00th=[ 4080], 80.00th=[ 4128], 90.00th=[ 4256], 95.00th=[ 4320],
+     | 99.00th=[ 5216], 99.50th=[ 5856], 99.90th=[ 7840], 99.95th=[ 8512],
+     | 99.99th=[10176]
+  cpu          : usr=14.67%, sys=85.27%, ctx=57, majf=0, minf=11
+  IO depths    : 1=200.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,1525513,0,0 short=0,1525512,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=596MiB/s (625MB/s), 596MiB/s-596MiB/s (625MB/s-625MB/s), io=5959MiB (6249MB), run=10001-10001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=0/0, merge=0/0, ticks=0/0, in_queue=0, util=0.00%

@@ -1,0 +1,21 @@
+bin:
+	cargo build --release --features=bitmap_u64
+clean:
+	cargo clean --release -p libfs
+clean_all:
+	cargo clean
+fmt:
+	cargo fmt
+	git status
+lint:
+	cargo clippy --release --fix --all --features=bitmap_u64
+	git status
+plint:
+	cargo clippy --release --fix --all --features=bitmap_u64 -- -W clippy::pedantic
+	git status
+test:
+	cargo test --release --features=bitmap_u64
+test_debug:
+	cargo test --release --features=bitmap_u64 -- --nocapture
+
+xxx:	fmt lint test

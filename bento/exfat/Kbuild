@@ -1,0 +1,15 @@
+obj-m := bento_exfat.o
+bento_exfat-objs := src/module.o exfat.rust.o
+
+KBUILD_EXTRA_SYMBOLS = $(src)/../bentofs/Module.symvers
+
+CARGO ?= cargo
+
+export c_flags
+export RUSTFLAGS=-Awarnings -C relocation-model=static -Z plt=yes
+
+$(src)/target/x86_64-unknown-none/release/libexfat.a: $(src)/Cargo.toml $(wildcard $(src)/src/*.rs)
+	cd $(src); env -u MAKE -u MAKEFLAGS $(CARGO) build -Z build-std=core,alloc --release --target=x86_64-unknown-none
+
+%.rust.o: target/x86_64-unknown-none/release/lib%.a
+	$(LD) -r -o $@ --whole-archive $<

@@ -1,0 +1,23 @@
+/*
+ * Copyright (C) 2019 Intel Corporation.  All rights reserved.
+ * SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+ */
+
+#ifndef _WASM_MEMORY_H
+#define _WASM_MEMORY_H
+
+#include "bh_common.h"
+#include "../include/wasm_export.h"
+#include "../interpreter/wasm_runtime.h"
+
+bool
+wasm_runtime_memory_init(mem_alloc_type_t mem_alloc_type,
+                         const MemAllocOption *alloc_option);
+
+void
+wasm_runtime_memory_destroy(void);
+
+unsigned
+wasm_runtime_memory_pool_size(void);
+
+#endif /* end of _WASM_MEMORY_H */

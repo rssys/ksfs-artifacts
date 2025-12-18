@@ -1,0 +1,15 @@
+[package]
+name = "exfat"
+
+[lib]
+crate-type = ["staticlib"]
+
+[dependencies]
+bento = {path = "../bento/rust" }
+datablock = { path = "../datablock-rs/datablock" }
+libexfat = { path = "../libexfat" }
+
+[dependencies.serde]
+version = "*"
+default-features = false
+features = ["alloc", "derive"]

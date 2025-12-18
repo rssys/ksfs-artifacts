@@ -1,0 +1,67 @@
+/mnt/test_file: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+...
+fio-3.33
+Starting 2 processes
+
+/mnt/test_file: (groupid=0, jobs=1): err= 0: pid=11806: Thu Aug 21 03:49:39 2025
+  write: IOPS=103k, BW=404MiB/s (424MB/s)(4096MiB/10132msec); 0 zone resets
+    clat (nsec): min=1640, max=548890, avg=2380.37, stdev=1621.08
+     lat (nsec): min=1700, max=548950, avg=2443.63, stdev=1621.15
+    clat percentiles (nsec):
+     |  1.00th=[ 1864],  5.00th=[ 1976], 10.00th=[ 2040], 20.00th=[ 2128],
+     | 30.00th=[ 2192], 40.00th=[ 2224], 50.00th=[ 2288], 60.00th=[ 2352],
+     | 70.00th=[ 2416], 80.00th=[ 2544], 90.00th=[ 2704], 95.00th=[ 2864],
+     | 99.00th=[ 5152], 99.50th=[ 6048], 99.90th=[ 7456], 99.95th=[ 7904],
+     | 99.99th=[ 9024]
+   bw (  KiB/s): min=224184, max=465616, per=50.70%, avg=419429.60, stdev=66255.04, samples=20
+   iops        : min=56048, max=116404, avg=104857.60, stdev=16563.41, samples=20
+  lat (usec)   : 2=6.66%, 4=91.67%, 10=1.67%, 20=0.01%, 100=0.01%
+  lat (usec)   : 250=0.01%, 500=0.01%, 750=0.01%
+  fsync/fdatasync/sync_file_range:
+    sync (usec): min=3, max=965, avg= 6.03, stdev= 1.25
+    sync percentiles (nsec):
+     |  1.00th=[ 4640],  5.00th=[ 5024], 10.00th=[ 5216], 20.00th=[ 5472],
+     | 30.00th=[ 5600], 40.00th=[ 5792], 50.00th=[ 5920], 60.00th=[ 6112],
+     | 70.00th=[ 6240], 80.00th=[ 6496], 90.00th=[ 6880], 95.00th=[ 7392],
+     | 99.00th=[ 8896], 99.50th=[ 9792], 99.90th=[11456], 99.95th=[12352],
+     | 99.99th=[17024]
+  cpu          : usr=10.02%, sys=89.93%, ctx=39, majf=0, minf=14
+  IO depths    : 1=200.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,1048577,0,0 short=0,1048576,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+/mnt/test_file: (groupid=0, jobs=1): err= 0: pid=11807: Thu Aug 21 03:49:39 2025
+  write: IOPS=103k, BW=404MiB/s (424MB/s)(4096MiB/10141msec); 0 zone resets
+    clat (nsec): min=1640, max=221896, avg=2415.19, stdev=627.07
+     lat (nsec): min=1700, max=221956, avg=2476.33, stdev=627.29
+    clat percentiles (nsec):
+     |  1.00th=[ 1912],  5.00th=[ 2024], 10.00th=[ 2096], 20.00th=[ 2160],
+     | 30.00th=[ 2224], 40.00th=[ 2288], 50.00th=[ 2320], 60.00th=[ 2384],
+     | 70.00th=[ 2448], 80.00th=[ 2544], 90.00th=[ 2704], 95.00th=[ 2864],
+     | 99.00th=[ 5280], 99.50th=[ 6176], 99.90th=[ 7392], 99.95th=[ 7840],
+     | 99.99th=[ 9280]
+   bw (  KiB/s): min=209816, max=465616, per=50.70%, avg=419430.40, stdev=67212.94, samples=20
+   iops        : min=52454, max=116404, avg=104857.60, stdev=16803.24, samples=20
+  lat (usec)   : 2=3.20%, 4=95.15%, 10=1.64%, 20=0.01%, 50=0.01%
+  lat (usec)   : 100=0.01%, 250=0.01%
+  fsync/fdatasync/sync_file_range:
+    sync (nsec): min=3169, max=168837, avg=6006.57, stdev=847.99
+    sync percentiles (nsec):
+     |  1.00th=[ 4640],  5.00th=[ 4960], 10.00th=[ 5152], 20.00th=[ 5408],
+     | 30.00th=[ 5600], 40.00th=[ 5728], 50.00th=[ 5920], 60.00th=[ 6112],
+     | 70.00th=[ 6240], 80.00th=[ 6496], 90.00th=[ 6880], 95.00th=[ 7392],
+     | 99.00th=[ 8896], 99.50th=[ 9792], 99.90th=[11456], 99.95th=[12224],
+     | 99.99th=[17792]
+  cpu          : usr=9.50%, sys=90.45%, ctx=35, majf=0, minf=13
+  IO depths    : 1=200.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,1048577,0,0 short=0,1048576,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=808MiB/s (847MB/s), 404MiB/s-404MiB/s (424MB/s-424MB/s), io=8192MiB (8590MB), run=10132-10141msec
+
+Disk stats (read/write):
+  nvme0n1: ios=0/34263, merge=0/482018, ticks=0/6867, in_queue=6867, util=8.61%

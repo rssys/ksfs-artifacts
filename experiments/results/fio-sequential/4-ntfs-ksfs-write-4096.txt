@@ -1,0 +1,37 @@
+/mnt/test_file: (g=0): rw=write, bs=(R) 4096KiB-4096KiB, (W) 4096KiB-4096KiB, (T) 4096KiB-4096KiB, ioengine=psync, iodepth=1
+fio-3.33
+Starting 1 process
+
+/mnt/test_file: (groupid=0, jobs=1): err= 0: pid=27998: Sun Aug 24 20:39:20 2025
+  write: IOPS=310, BW=1240MiB/s (1301MB/s)(12.2GiB/10114msec); 0 zone resets
+    clat (usec): min=1075, max=16356, avg=1150.41, stdev=429.07
+     lat (usec): min=1098, max=16408, avg=1184.21, stdev=431.10
+    clat percentiles (usec):
+     |  1.00th=[ 1090],  5.00th=[ 1090], 10.00th=[ 1090], 20.00th=[ 1090],
+     | 30.00th=[ 1123], 40.00th=[ 1123], 50.00th=[ 1123], 60.00th=[ 1123],
+     | 70.00th=[ 1123], 80.00th=[ 1139], 90.00th=[ 1188], 95.00th=[ 1237],
+     | 99.00th=[ 1631], 99.50th=[ 1762], 99.90th=[10290], 99.95th=[13304],
+     | 99.99th=[16319]
+   bw (  MiB/s): min= 1024, max= 1536, per=100.00%, avg=1254.40, stdev=180.58, samples=20
+   iops        : min=  256, max=  384, avg=313.60, stdev=45.15, samples=20
+  lat (msec)   : 2=99.87%, 20=0.13%
+  fsync/fdatasync/sync_file_range:
+    sync (msec): min=115, max=142, avg=130.57, stdev= 7.79
+    sync percentiles (msec):
+     |  1.00th=[  115],  5.00th=[  122], 10.00th=[  122], 20.00th=[  123],
+     | 30.00th=[  126], 40.00th=[  127], 50.00th=[  130], 60.00th=[  132],
+     | 70.00th=[  138], 80.00th=[  140], 90.00th=[  142], 95.00th=[  142],
+     | 99.00th=[  144], 99.50th=[  144], 99.90th=[  144], 99.95th=[  144],
+     | 99.99th=[  144]
+  cpu          : usr=1.26%, sys=94.36%, ctx=11917, majf=0, minf=13
+  IO depths    : 1=101.6%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,3136,0,49 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=1240MiB/s (1301MB/s), 1240MiB/s-1240MiB/s (1301MB/s-1301MB/s), io=12.2GiB (13.2GB), run=10114-10114msec
+
+Disk stats (read/write):
+  nvme0n1: ios=0/24939, merge=0/3118814, ticks=0/18042, in_queue=18122, util=31.42%

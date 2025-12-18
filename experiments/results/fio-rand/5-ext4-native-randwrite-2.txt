@@ -1,0 +1,69 @@
+/mnt/test_file: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+...
+fio-3.33
+Starting 2 processes
+
+/mnt/test_file: (groupid=0, jobs=1): err= 0: pid=240232: Sun Dec 14 02:49:22 2025
+  write: IOPS=115k, BW=448MiB/s (470MB/s)(4481MiB/10001msec); 0 zone resets
+    clat (nsec): min=1800, max=8463.3k, avg=3035.94, stdev=8014.97
+     lat (nsec): min=1860, max=8464.1k, avg=3160.05, stdev=8018.82
+    clat percentiles (nsec):
+     |  1.00th=[ 1928],  5.00th=[ 2008], 10.00th=[ 2064], 20.00th=[ 2192],
+     | 30.00th=[ 2256], 40.00th=[ 2352], 50.00th=[ 2416], 60.00th=[ 2544],
+     | 70.00th=[ 3888], 80.00th=[ 4192], 90.00th=[ 4448], 95.00th=[ 4640],
+     | 99.00th=[ 8384], 99.50th=[10304], 99.90th=[15680], 99.95th=[16768],
+     | 99.99th=[19840]
+   bw (  KiB/s): min=92176, max=518992, per=49.71%, avg=456199.16, stdev=128520.66, samples=19
+   iops        : min=23044, max=129748, avg=114049.79, stdev=32130.46, samples=19
+  lat (usec)   : 2=4.80%, 4=67.76%, 10=26.85%, 20=0.58%, 50=0.01%
+  lat (usec)   : 250=0.01%, 500=0.01%
+  lat (msec)   : 10=0.01%
+  fsync/fdatasync/sync_file_range:
+    sync (usec): min=2, max=6539, avg= 3.63, stdev= 7.71
+    sync percentiles (nsec):
+     |  1.00th=[ 2256],  5.00th=[ 2608], 10.00th=[ 2640], 20.00th=[ 2672],
+     | 30.00th=[ 2736], 40.00th=[ 2800], 50.00th=[ 2960], 60.00th=[ 4384],
+     | 70.00th=[ 4512], 80.00th=[ 4640], 90.00th=[ 4832], 95.00th=[ 4960],
+     | 99.00th=[ 5472], 99.50th=[ 6496], 99.90th=[14656], 99.95th=[16320],
+     | 99.99th=[19584]
+  cpu          : usr=25.07%, sys=74.56%, ctx=67, majf=0, minf=14
+  IO depths    : 1=200.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,1147220,0,0 short=0,1147219,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+/mnt/test_file: (groupid=0, jobs=1): err= 0: pid=240233: Sun Dec 14 02:49:22 2025
+  write: IOPS=115k, BW=448MiB/s (470MB/s)(4482MiB/10001msec); 0 zone resets
+    clat (nsec): min=1810, max=8544.7k, avg=3004.85, stdev=8088.44
+     lat (nsec): min=1860, max=8545.5k, avg=3129.35, stdev=8092.56
+    clat percentiles (nsec):
+     |  1.00th=[ 1912],  5.00th=[ 2008], 10.00th=[ 2064], 20.00th=[ 2192],
+     | 30.00th=[ 2256], 40.00th=[ 2320], 50.00th=[ 2384], 60.00th=[ 2512],
+     | 70.00th=[ 3824], 80.00th=[ 4128], 90.00th=[ 4384], 95.00th=[ 4640],
+     | 99.00th=[ 8160], 99.50th=[10048], 99.90th=[15808], 99.95th=[16768],
+     | 99.99th=[19584]
+   bw (  KiB/s): min=81608, max=518872, per=49.71%, avg=456199.16, stdev=130671.81, samples=19
+   iops        : min=20402, max=129718, avg=114049.79, stdev=32667.95, samples=19
+  lat (usec)   : 2=4.67%, 4=69.26%, 10=25.55%, 20=0.51%, 50=0.01%
+  lat (usec)   : 100=0.01%, 500=0.01%
+  lat (msec)   : 10=0.01%
+  fsync/fdatasync/sync_file_range:
+    sync (usec): min=2, max=6541, avg= 3.65, stdev= 9.23
+    sync percentiles (nsec):
+     |  1.00th=[ 2256],  5.00th=[ 2608], 10.00th=[ 2640], 20.00th=[ 2672],
+     | 30.00th=[ 2736], 40.00th=[ 2800], 50.00th=[ 2960], 60.00th=[ 4448],
+     | 70.00th=[ 4576], 80.00th=[ 4704], 90.00th=[ 4832], 95.00th=[ 4960],
+     | 99.00th=[ 5344], 99.50th=[ 6432], 99.90th=[15040], 99.95th=[16512],
+     | 99.99th=[19328]
+  cpu          : usr=24.23%, sys=75.34%, ctx=80, majf=0, minf=13
+  IO depths    : 1=200.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,1147476,0,0 short=0,1147475,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=896MiB/s (940MB/s), 448MiB/s-448MiB/s (470MB/s-470MB/s), io=8964MiB (9399MB), run=10001-10001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=2/2267541, merge=0/1, ticks=17/32481, in_queue=32500, util=88.66%

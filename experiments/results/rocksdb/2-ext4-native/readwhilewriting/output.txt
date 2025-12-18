@@ -1,0 +1,107 @@
+Use leveled compaction
+===== Benchmark =====
+Starting readwhilewriting (ID: ) at Sun Dec 14 04:18:53 AM EST 2025
+Reading 100000000 random keys while writing
+/usr/bin/time -f '%e %U %S' -o ../results/rocksdb/2-ext4-native/readwhilewriting/benchmark_readwhilewriting.t64.log.time timeout 660 ./db_bench --benchmarks=readwhilewriting,stats --use_existing_db=1 --sync=1 --level0_file_num_compaction_trigger=4 --level0_slowdown_writes_trigger=20 --level0_stop_writes_trigger=30 --max_background_jobs=16 --max_write_buffer_number=8 --undefok=use_blob_cache,use_shared_block_and_blob_cache,blob_cache_size,blob_cache_numshardbits,prepopulate_blob_cache,multiread_batched,cache_low_pri_pool_ratio,prepopulate_block_cache --db=/mnt/db --wal_dir=/mnt/wal --num=100000000 --key_size=20 --value_size=400 --block_size=8192 --cache_size=536870912 --cache_numshardbits=6 --compression_max_dict_bytes=0 --compression_ratio=0.5 --compression_type=zstd --bytes_per_sync=1048576 --benchmark_write_rate_limit=102400 --write_buffer_size=134217728 --target_file_size_base=134217728 --max_bytes_for_level_base=1073741824 --verify_checksum=1 --delete_obsolete_files_period_micros=62914560 --max_bytes_for_level_multiplier=8 --statistics=0 --stats_per_interval=1 --stats_interval_seconds=60 --report_interval_seconds=1 --histogram=1 --memtablerep=skip_list --bloom_bits=10 --open_files=-1 --subcompactions=1 --compaction_style=0 --num_levels=8 --min_level_to_compress=-1 --level_compaction_dynamic_level_bytes=true --pin_l0_filter_and_index_blocks_in_cache=1 --duration=60 --threads=64 --merge_operator="put" --seed=1765703933 --report_file=../results/rocksdb/2-ext4-native/readwhilewriting/benchmark_readwhilewriting.t64.log.r.csv 2>&1 | tee -a ../results/rocksdb/2-ext4-native/readwhilewriting/benchmark_readwhilewriting.t64.log
+RocksDB:    version 7.8.3
+Date:       Sun Dec 14 04:18:53 2025
+CPU:        24 * AMD EPYC 7443P 24-Core Processor
+CPUCache:   512 KB
+Initializing RocksDB Options from the specified file
+Initializing RocksDB Options from command-line flags
+Integrated BlobDB: blob cache disabled
+Keys:       20 bytes each (+ 0 bytes user-defined timestamp)
+Values:     400 bytes each (200 bytes after compression)
+Entries:    100000000
+Prefix:    0 bytes
+Keys per prefix:    0
+RawSize:    40054.3 MB (estimated)
+FileSize:   20980.8 MB (estimated)
+Write rate: 102400 bytes/second
+Read rate: 0 ops/second
+Compression: ZSTD
+Compression sampling rate: 0
+Memtablerep: SkipListFactory
+Perf Level: 1
+WARNING: Assertions are enabled; benchmarks unnecessarily slow
+------------------------------------------------
+DB path: [/mnt/db]
+readwhilewriting :      38.772 micros/op 1650242 ops/sec 60.027 seconds 99058936 operations;  418.6 MB/s (983657 of 1553999 found)
+
+Microseconds per read:
+Count: 99058936 Average: 38.7739  StdDev: 387.87
+Min: 0  Median: 16.5719  Max: 48742
+Percentiles: P50: 16.57 P75: 19.60 P99: 319.97 P99.9: 6306.13 P99.99: 15919.29
+------------------------------------------------------
+[       0,       1 ]   120280   0.121%   0.121% 
+(       1,       2 ] 12243419  12.360%  12.481% ##
+(       2,       3 ] 20321667  20.515%  32.996% ####
+(       3,       4 ]  2270501   2.292%  35.288% 
+(       4,       6 ]   775598   0.783%  36.071% 
+(       6,      10 ]   918885   0.928%  36.999% 
+(      10,      15 ]    37821   0.038%  37.037% 
+(      15,      22 ] 57185670  57.729%  94.766% ############
+(      22,      34 ]  1893675   1.912%  96.677% 
+(      34,      51 ]   692949   0.700%  97.377% 
+(      51,      76 ]   109634   0.111%  97.488% 
+(      76,     110 ]   393775   0.398%  97.885% 
+(     110,     170 ]   619532   0.625%  98.510% 
+(     170,     250 ]   359676   0.363%  98.874% 
+(     250,     380 ]   232727   0.235%  99.108% 
+(     380,     580 ]   150230   0.152%  99.260% 
+(     580,     870 ]   213481   0.216%  99.476% 
+(     870,    1300 ]   109923   0.111%  99.587% 
+(    1300,    1900 ]    79793   0.081%  99.667% 
+(    1900,    2900 ]    85684   0.086%  99.754% 
+(    2900,    4400 ]    83207   0.084%  99.838% 
+(    4400,    6600 ]    71270   0.072%  99.910% 
+(    6600,    9900 ]    51690   0.052%  99.962% 
+(    9900,   14000 ]    25205   0.025%  99.987% 
+(   14000,   22000 ]    11413   0.012%  99.999% 
+(   22000,   33000 ]     1188   0.001% 100.000% 
+(   33000,   50000 ]       43   0.000% 100.000% 
+
+
+
+** Compaction Stats [default] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop Rblob(GB) Wblob(GB)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      2/0   58.03 MB   0.5      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0     57.9      0.06              0.00         1    0.062       0      0       0.0       0.0
+  L7     86/0   10.74 GB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0       0.0       0.0
+ Sum     88/0   10.80 GB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0     57.9      0.06              0.00         1    0.062       0      0       0.0       0.0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0       0.0       0.0
+
+** Compaction Stats [default] **
+Priority    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop Rblob(GB) Wblob(GB)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+User      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0     57.9      0.06              0.00         1    0.062       0      0       0.0       0.0
+
+Blob file count: 0, total size: 0.0 GB, garbage size: 0.0 GB, space amp: 0.0
+
+Uptime(secs): 60.3 total, 60.0 interval
+Flush(GB): cumulative 0.004, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.06 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.1 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+Block cache LRUCache@0x555555641f10#256920 capacity: 512.00 MB usage: 0.09 KB table_size: 1024 occupancy: 88 collections: 1 last_copies: 0 last_secs: 7.7e-05 secs_since: 60
+Block cache entry stats(count,size,portion): Misc(1,0.00 KB,0%)
+
+** File Read Latency Histogram By Level [default] **
+
+** DB Stats **
+Uptime(secs): 60.3 total, 60.0 interval
+Cumulative writes: 10K writes, 10K keys, 10K commit groups, 1.0 writes per commit group, ingest: 0.00 GB, 0.07 MB/s
+Cumulative WAL: 10K writes, 10K syncs, 1.00 writes per sync, written: 0.00 GB, 0.07 MB/s
+Cumulative stall: 00:00:0.000 H:M:S, 0.0 percent
+Interval writes: 10K writes, 10K keys, 10K commit groups, 1.0 writes per commit group, ingest: 4.20 MB, 0.07 MB/s
+Interval WAL: 10K writes, 10K syncs, 1.00 writes per sync, written: 0.00 GB, 0.07 MB/s
+Interval stall: 00:00:0.000 H:M:S, 0.0 percent
+
+iostat: no process found
+Completed readwhilewriting (ID: ) in 61 seconds
+ops_sec	mb_sec	lsm_sz	blob_sz	c_wgb	w_amp	c_mbps	c_wsecs	c_csecs	b_rgb	b_wgb	usec_op	p50	p99	p99.9	p99.99	pmax	uptime	stall%	Nstall	u_cpu	s_cpu	rss	test	date	version	job_id	githash
+1650242	418.6	11GB	0GB	0.0	NA	0.1	0	0	0	0	38.8	16.6	320	6306	15919	48742	60	0.0	0	1.2	0.1	1.1	readwhilewriting.t64	2025-12-14T04:18:53	7.8.3		0

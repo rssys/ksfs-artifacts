@@ -1,0 +1,67 @@
+/mnt/test_file: (g=0): rw=randwrite, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+...
+fio-3.33
+Starting 2 processes
+
+/mnt/test_file: (groupid=0, jobs=1): err= 0: pid=96463: Sat Aug 23 07:18:06 2025
+  write: IOPS=122k, BW=477MiB/s (500MB/s)(4767MiB/10001msec); 0 zone resets
+    clat (nsec): min=1790, max=108368, avg=3375.96, stdev=1312.19
+     lat (nsec): min=1850, max=108419, avg=3550.80, stdev=1308.07
+    clat percentiles (nsec):
+     |  1.00th=[ 1896],  5.00th=[ 2008], 10.00th=[ 2128], 20.00th=[ 2256],
+     | 30.00th=[ 2352], 40.00th=[ 2512], 50.00th=[ 3792], 60.00th=[ 3952],
+     | 70.00th=[ 4048], 80.00th=[ 4192], 90.00th=[ 4320], 95.00th=[ 4512],
+     | 99.00th=[ 8384], 99.50th=[10176], 99.90th=[15808], 99.95th=[17280],
+     | 99.99th=[20864]
+   bw (  KiB/s): min=152056, max=548352, per=49.76%, avg=485675.79, stdev=121076.31, samples=19
+   iops        : min=38014, max=137088, avg=121419.05, stdev=30268.91, samples=19
+  lat (usec)   : 2=4.09%, 4=60.46%, 10=34.88%, 20=0.56%, 50=0.01%
+  lat (usec)   : 100=0.01%, 250=0.01%
+  fsync/fdatasync/sync_file_range:
+    sync (nsec): min=1840, max=1762.2k, avg=2836.84, stdev=4721.73
+    sync percentiles (nsec):
+     |  1.00th=[ 2096],  5.00th=[ 2384], 10.00th=[ 2416], 20.00th=[ 2416],
+     | 30.00th=[ 2448], 40.00th=[ 2480], 50.00th=[ 2512], 60.00th=[ 2576],
+     | 70.00th=[ 2672], 80.00th=[ 2768], 90.00th=[ 4320], 95.00th=[ 4448],
+     | 99.00th=[ 4768], 99.50th=[ 4960], 99.90th=[ 8384], 99.95th=[14400],
+     | 99.99th=[19840]
+  cpu          : usr=23.70%, sys=76.07%, ctx=57, majf=0, minf=14
+  IO depths    : 1=200.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,1220366,0,0 short=0,1220366,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+/mnt/test_file: (groupid=0, jobs=1): err= 0: pid=96464: Sat Aug 23 07:18:06 2025
+  write: IOPS=122k, BW=477MiB/s (500MB/s)(4766MiB/10001msec); 0 zone resets
+    clat (nsec): min=1790, max=247156, avg=3372.37, stdev=1362.49
+     lat (nsec): min=1850, max=247216, avg=3543.79, stdev=1358.64
+    clat percentiles (nsec):
+     |  1.00th=[ 1896],  5.00th=[ 2008], 10.00th=[ 2096], 20.00th=[ 2224],
+     | 30.00th=[ 2320], 40.00th=[ 2480], 50.00th=[ 3760], 60.00th=[ 3952],
+     | 70.00th=[ 4048], 80.00th=[ 4192], 90.00th=[ 4320], 95.00th=[ 4512],
+     | 99.00th=[ 9280], 99.50th=[10560], 99.90th=[15680], 99.95th=[17280],
+     | 99.99th=[20352]
+   bw (  KiB/s): min=152048, max=548320, per=49.75%, avg=485547.37, stdev=120959.40, samples=19
+   iops        : min=38012, max=137080, avg=121386.84, stdev=30239.85, samples=19
+  lat (usec)   : 2=4.68%, 4=60.35%, 10=34.23%, 20=0.73%, 50=0.01%
+  lat (usec)   : 100=0.01%, 250=0.01%
+  fsync/fdatasync/sync_file_range:
+    sync (nsec): min=1840, max=1766.6k, avg=2844.30, stdev=4726.00
+    sync percentiles (nsec):
+     |  1.00th=[ 2096],  5.00th=[ 2384], 10.00th=[ 2416], 20.00th=[ 2416],
+     | 30.00th=[ 2448], 40.00th=[ 2480], 50.00th=[ 2544], 60.00th=[ 2576],
+     | 70.00th=[ 2672], 80.00th=[ 2800], 90.00th=[ 4320], 95.00th=[ 4512],
+     | 99.00th=[ 4832], 99.50th=[ 4960], 99.90th=[ 8096], 99.95th=[12864],
+     | 99.99th=[19072]
+  cpu          : usr=22.82%, sys=76.95%, ctx=67, majf=0, minf=13
+  IO depths    : 1=200.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,1220022,0,0 short=0,1220021,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=953MiB/s (999MB/s), 477MiB/s-477MiB/s (500MB/s-500MB/s), io=9533MiB (9996MB), run=10001-10001msec
+
+Disk stats (read/write):
+  nvme0n1: ios=0/2412363, merge=0/0, ticks=0/29970, in_queue=29970, util=89.19%
